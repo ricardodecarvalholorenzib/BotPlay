@@ -40,11 +40,26 @@ func main() {
 			Name:        "ping",
 			Description: "Responde com Pong!",
 		},
+
 		{
 			Name:        "help",
 			Description: "Mostra os comandos disponíveis",
 		},
+		
+		{
+			Name:        "msg",
+			Description: "Envia uma mensagem com o Bot",
+			Options: []*discordgo.ApplicationCommandOption{
+				{
+					Type:        discordgo.ApplicationCommandOptionString,
+					Name:        "mensagem",
+					Description: "Mensagem a ser enviada",
+					Required:    true,
+				},
+			},
+		},
 	}
+
 
 	for _, command := range commands {
 		_, err := bot.ApplicationCommandCreate(
@@ -61,6 +76,22 @@ func main() {
 	bot.AddHandler(func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 
 		data := i.ApplicationCommandData()
+
+		if data.Name == "msg" {
+
+			texto := data.Options[0].StringValue()
+
+			s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+				Type: discordgo.InteractionResponseChannelMessageWithSource,
+				Data: &discordgo.InteractionResponseData{
+					Content: texto,
+				},
+			})
+
+			if err != nil {
+				fmt.Println("Erro ao enviar mensagem:", err)
+			}
+		}
 
 		switch data.Name {
 
@@ -79,6 +110,7 @@ func main() {
 					Content: "🎮 **Comandos disponíveis:**\n\n/ping - Responde com Pong!\n/help - Mostra esta mensagem",
 				},
 			})
+
 		}
 	})
 
