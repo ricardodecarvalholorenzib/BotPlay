@@ -25,7 +25,7 @@ O bot já possui:
 ## 🎮 Próximos passos
 
 - [ ] 🎲 Jogo de dados
-- [ ] 🪙 Cara ou coroa
+- [ ] ♋ Cara ou coroa
 - [ ] 🧠 Adivinhe o número
 - [ ] ✊ Pedra, Papel e Tesoura
 - [ ] 🏆 Sistema de XP e ranking
