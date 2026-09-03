@@ -43,10 +43,11 @@ O bot já possui:
 
 ```text
 BotPlay/
-└── Bot-Go/
-    ├── main.go
-    ├── go.mod
-    └── go.sum
+├── .gitignore
+├── README.md
+├── go.mod
+├── go.sum
+└── main.go
 ```
 
 ## ▶️ Executando localmente
