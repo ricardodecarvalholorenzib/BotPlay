@@ -9,7 +9,8 @@ func Help(s *discordgo.Session, i *discordgo.InteractionCreate) {
 			Content: "📋 Aqui estão os comandos disponíveis:\n" +
 					 "\n- /ping: Responde com Pong!" + 
 					 "\n- /help: Exibe esta mensagem de ajuda" +
-					 "\n- /dado: Rola um dado de 1 a 6",
+					 "\n- /dado: Rola um dado de 1 a 6" +
+					 "\n /caraoucoroa: Joga 'Cara ou Coroa' com o usuário",
 		},
 	})
 	if err != nil {
